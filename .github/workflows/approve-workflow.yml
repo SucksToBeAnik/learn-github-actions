@@ -1,0 +1,21 @@
+name: simulate approval
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  independent-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo from preview server
+        run: |
+          echo "building preview image and containers"
+  dependent-job:
+    runs-on: ubuntu-latest
+    needs: independent-job
+    environment: deployment
+    steps:
+      - name: echo from prod server
+        run: |
+          echo "now starting the prod build"
