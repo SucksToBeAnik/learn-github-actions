@@ -1,0 +1,26 @@
+name: Initial workflow
+on:
+    push:
+        branches: 
+            - main
+
+jobs:
+    echo-on-bash:
+        runs-on: ubuntu-latest
+        steps:
+            - name: echo some stuffs
+              run: |
+                echo "hello world"
+                ls
+                docker --version
+    run-python-code:
+        runs-on: windows-latest
+        defaults:
+            run:
+                shell: python
+        steps:
+            - name: print on python shell
+              run: |
+                print("hello python")
+
+    
