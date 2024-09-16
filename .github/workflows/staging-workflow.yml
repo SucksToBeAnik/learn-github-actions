@@ -1,0 +1,15 @@
+name: testing directories
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    test-commands-in-ubuntu:
+        runs-on: ubuntu-latest
+        steps:
+            - name: show directory
+              run: |
+                pwd
+                ls -a
+                
